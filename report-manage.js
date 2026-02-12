@@ -60,5 +60,66 @@
     filterStatus.addEventListener("change", applyFilters);
   }
 
+  // 上架：将状态改为已上架，操作改为下架
+  function doOn(id) {
+    var row = reportTable && reportTable.querySelector('.table-row[data-id="' + id + '"]');
+    if (!row) return;
+    var statusEl = row.querySelector(".status");
+    var opsEl = row.querySelector(".ops");
+    if (statusEl) {
+      statusEl.textContent = "已上架";
+      statusEl.className = "status success";
+    }
+    if (opsEl) {
+      opsEl.innerHTML =
+        '<a href="./report-new.html?id=' + id + '">编辑</a>' +
+        '<a href="#" class="op-off" data-id="' + id + '">下架</a>' +
+        '<a href="#" class="op-del" data-id="' + id + '">删除</a>';
+    }
+    applyFilters();
+  }
+
+  // 下架：将状态改为未上架，操作改为上架
+  function doOff(id) {
+    var row = reportTable && reportTable.querySelector('.table-row[data-id="' + id + '"]');
+    if (!row) return;
+    var statusEl = row.querySelector(".status");
+    var opsEl = row.querySelector(".ops");
+    if (statusEl) {
+      statusEl.textContent = "未上架";
+      statusEl.className = "status muted";
+    }
+    if (opsEl) {
+      opsEl.innerHTML =
+        '<a href="./report-new.html?id=' + id + '">编辑</a>' +
+        '<a href="#" class="op-on" data-id="' + id + '">上架</a>' +
+        '<a href="#" class="op-del" data-id="' + id + '">删除</a>';
+    }
+    applyFilters();
+  }
+
+  // 删除：确认后移除该行
+  function doDel(id) {
+    if (!confirm("确定要删除该报告吗？")) return;
+    var row = reportTable && reportTable.querySelector('.table-row[data-id="' + id + '"]');
+    if (row && row.parentNode) {
+      row.parentNode.removeChild(row);
+      applyFilters();
+    }
+  }
+
+  if (reportTable) {
+    reportTable.addEventListener("click", function (e) {
+      var t = e.target;
+      if (t.tagName !== "A" || !t.getAttribute("href") || t.getAttribute("href") !== "#") return;
+      var id = t.getAttribute("data-id");
+      if (!id) return;
+      e.preventDefault();
+      if (t.classList.contains("op-on")) doOn(id);
+      else if (t.classList.contains("op-off")) doOff(id);
+      else if (t.classList.contains("op-del")) doDel(id);
+    });
+  }
+
   applyFilters();
 })();
