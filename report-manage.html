@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="报告管理 · 运营端：行业报告、项目报告与培训报告维护与发布。" />
+  <title>报告管理 - 运营端 - 链域智汇</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Source+Han+Sans+SC:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+<body class="admin-body">
+  <div class="admin dashboard-layout">
+    <aside class="dashboard-sidebar" aria-label="主导航">
+      <div class="dashboard-sidebar__top">
+        <a href="./expert.html" class="dashboard-logo" title="链域智汇 运营端">
+          <span class="dashboard-logo__mark">链</span>
+        </a>
+        <div class="dashboard-sidebar__brand-wrap">
+          <span class="dashboard-sidebar__brand">链域智汇</span>
+          <span class="dashboard-sidebar__portal-tag" aria-label="运营端">运营端</span>
+        </div>
+      </div>
+      <nav class="dashboard-nav" aria-label="功能菜单">
+        <a href="./expert.html" class="dashboard-nav__item" title="专家管理">
+          <span class="dashboard-nav__icon dashboard-nav__icon--svg">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="7" r="3.2"/><path d="M5 21v-2a4 4 0 0 1 4-4h6a4 4 0 0 1 4 4v2"/><circle cx="18" cy="5" r="1.8" fill="currentColor"/></svg>
+          </span>
+          <span class="dashboard-nav__label">专家管理</span>
+        </a>
+        <a href="./project-manage.html" class="dashboard-nav__item" title="项目管理">
+          <span class="dashboard-nav__icon dashboard-nav__icon--svg">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/><path d="M9 15l2 2 4-4"/></svg>
+          </span>
+          <span class="dashboard-nav__label">项目管理</span>
+        </a>
+        <a href="./course-list.html" class="dashboard-nav__item" title="课程管理">
+          <span class="dashboard-nav__icon dashboard-nav__icon--svg">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/><path d="M8 7h8"/><path d="M8 11h6"/></svg>
+          </span>
+          <span class="dashboard-nav__label">课程管理</span>
+        </a>
+        <a href="./report-manage.html" class="dashboard-nav__item dashboard-nav__item--active" title="报告管理">
+          <span class="dashboard-nav__icon dashboard-nav__icon--svg">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/><path d="M16 13H8"/><path d="M16 17H8"/><path d="M10 9H8"/></svg>
+          </span>
+          <span class="dashboard-nav__label">报告管理</span>
+        </a>
+      </nav>
+      <div class="dashboard-sidebar__bottom">
+        <div class="dashboard-sidebar__user">
+          <span class="dashboard-sidebar__user-avatar">管</span>
+          <div class="dashboard-sidebar__user-info">
+            <span class="dashboard-sidebar__user-name">管理员</span>
+            <span class="dashboard-sidebar__user-role">运营账号</span>
+          </div>
+        </div>
+      </div>
+    </aside>
+
+    <div class="dashboard-main">
+      <div class="dashboard-content">
+    <main class="content">
+      <header class="content-header">
+        <div>
+          <h1>报告管理</h1>
+          <p>行业报告、项目报告与培训报告的维护与发布</p>
+        </div>
+        <div class="actions">
+          <a href="./report-new.html" class="action-btn action-btn--primary">新建报告</a>
+        </div>
+      </header>
+
+      <section class="card">
+        <div class="table-toolbar">
+          <input class="search" type="text" placeholder="搜索报告标题 / 作者 / 关联项目" id="reportSearch" />
+          <select class="filter" id="filterType">
+            <option value="">全部类型</option>
+            <option value="行业报告">行业报告</option>
+            <option value="项目报告">项目报告</option>
+            <option value="培训报告">培训报告</option>
+          </select>
+          <select class="filter" id="filterStatus">
+            <option value="">全部状态</option>
+            <option value="已上架">已上架</option>
+            <option value="未上架">未上架</option>
+          </select>
+        </div>
+
+        <div class="table table--report" id="reportTable">
+          <div class="table-head">
+            <span>报告标题</span>
+            <span>类型</span>
+            <span>关联</span>
+            <span>作者</span>
+            <span>创建时间</span>
+            <span>状态</span>
+            <span>操作</span>
+          </div>
+          <div class="table-row" data-id="1">
+            <div class="report-title-cell">
+              <span class="name">2024 供应链数字化趋势与实践报告</span>
+            </div>
+            <span>行业报告</span>
+            <span>—</span>
+            <span>李泽宇</span>
+            <span>2025-01-15</span>
+            <span class="status success">已上架</span>
+            <span class="ops"><a href="#">下架</a></span>
+          </div>
+          <div class="table-row" data-id="2">
+            <div class="report-title-cell">
+              <span class="name">某汽车零部件采购与供应商协同项目总结</span>
+            </div>
+            <span>项目报告</span>
+            <span>某汽车 Tier1 项目</span>
+            <span>周婧怡</span>
+            <span>2025-01-20</span>
+            <span class="status success">已上架</span>
+            <span class="ops"><a href="#">下架</a></span>
+          </div>
+          <div class="table-row" data-id="3">
+            <div class="report-title-cell">
+              <span class="name">供应链战略与规划实战课程反馈报告</span>
+            </div>
+            <span>培训报告</span>
+            <span>供应链战略与规划实战</span>
+            <span>王天澍</span>
+            <span>2025-02-01</span>
+            <span class="status success">已上架</span>
+            <span class="ops"><a href="#">下架</a></span>
+          </div>
+          <div class="table-row" data-id="4">
+            <div class="report-title-cell">
+              <span class="name">快消 S&OP 与需求预测行业白皮书</span>
+            </div>
+            <span>行业报告</span>
+            <span>—</span>
+            <span>李泽宇</span>
+            <span>2025-02-05</span>
+            <span class="status muted">未上架</span>
+            <span class="ops"><a href="#">上架</a></span>
+          </div>
+          <div class="table-row" data-id="5">
+            <div class="report-title-cell">
+              <span class="name">仓储规划与智能调度培训效果评估</span>
+            </div>
+            <span>培训报告</span>
+            <span>仓储规划与智能调度</span>
+            <span>周婧怡</span>
+            <span>2025-02-08</span>
+            <span class="status muted">未上架</span>
+            <span class="ops"><a href="#">上架</a></span>
+          </div>
+        </div>
+
+        <div class="table-pagination">
+          <div class="pagination-info" id="paginationInfo">共 5 条</div>
+          <div class="pagination-controls">
+            <button type="button" class="pagination-btn" disabled aria-label="上一页" id="prevBtn">上一页</button>
+            <span class="pagination-pages">
+              <button type="button" class="pagination-num is-current">1</button>
+            </span>
+            <button type="button" class="pagination-btn" disabled aria-label="下一页" id="nextBtn">下一页</button>
+          </div>
+          <div class="pagination-size">
+            <label for="pageSize">每页</label>
+            <select id="pageSize" class="pagination-select">
+              <option value="10">10 条</option>
+              <option value="20">20 条</option>
+              <option value="50">50 条</option>
+            </select>
+          </div>
+        </div>
+      </section>
+    </main>
+      </div>
+    </div>
+  </div>
+
+  <script src="./report-manage.js"></script>
+</body>
+</html>

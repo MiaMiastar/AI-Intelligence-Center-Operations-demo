@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="项目详情 · 运营端：查看行业项目完整信息与审核状态。" />
+  <title>项目详情 - 运营端 - 链域智汇</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Source+Han+Sans+SC:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+<body class="admin-body">
+  <div class="admin dashboard-layout">
+    <aside class="dashboard-sidebar" aria-label="主导航">
+      <div class="dashboard-sidebar__top">
+        <a href="./expert.html" class="dashboard-logo" title="链域智汇 运营端">
+          <span class="dashboard-logo__mark">链</span>
+        </a>
+        <div class="dashboard-sidebar__brand-wrap">
+          <span class="dashboard-sidebar__brand">链域智汇</span>
+          <span class="dashboard-sidebar__portal-tag" aria-label="运营端">运营端</span>
+        </div>
+      </div>
+      <nav class="dashboard-nav" aria-label="功能菜单">
+        <a href="./expert.html" class="dashboard-nav__item" title="专家管理">
+          <span class="dashboard-nav__icon dashboard-nav__icon--svg">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="7" r="3.2"/><path d="M5 21v-2a4 4 0 0 1 4-4h6a4 4 0 0 1 4 4v2"/><circle cx="18" cy="5" r="1.8" fill="currentColor"/></svg>
+          </span>
+          <span class="dashboard-nav__label">专家管理</span>
+        </a>
+        <a href="./project-manage.html" class="dashboard-nav__item dashboard-nav__item--active" title="项目管理">
+          <span class="dashboard-nav__icon dashboard-nav__icon--svg">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/><path d="M9 15l2 2 4-4"/></svg>
+          </span>
+          <span class="dashboard-nav__label">项目管理</span>
+        </a>
+        <a href="./course-list.html" class="dashboard-nav__item" title="课程管理">
+          <span class="dashboard-nav__icon dashboard-nav__icon--svg">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/><path d="M8 7h8"/><path d="M8 11h6"/></svg>
+          </span>
+          <span class="dashboard-nav__label">课程管理</span>
+        </a>
+        <a href="./report-manage.html" class="dashboard-nav__item" title="报告管理">
+          <span class="dashboard-nav__icon dashboard-nav__icon--svg">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/><path d="M16 13H8"/><path d="M16 17H8"/><path d="M10 9H8"/></svg>
+          </span>
+          <span class="dashboard-nav__label">报告管理</span>
+        </a>
+      </nav>
+      <div class="dashboard-sidebar__bottom">
+        <div class="dashboard-sidebar__user">
+          <span class="dashboard-sidebar__user-avatar">管</span>
+          <div class="dashboard-sidebar__user-info">
+            <span class="dashboard-sidebar__user-name">管理员</span>
+            <span class="dashboard-sidebar__user-role">运营账号</span>
+          </div>
+        </div>
+      </div>
+    </aside>
+
+    <div class="dashboard-main">
+      <div class="dashboard-content">
+    <main class="content">
+      <header class="content-header">
+        <div>
+          <a href="./project-manage.html" class="form-back">← 返回项目管理</a>
+          <h1 id="detailTitle">项目详情</h1>
+          <p id="detailSubtitle">查看项目完整信息与审核状态</p>
+        </div>
+        <div class="actions" id="detailActions">
+          <a href="./project-manage.html" class="action-btn action-btn--secondary">返回列表</a>
+          <button type="button" class="action-btn action-btn--primary" id="btnFirstReview" style="display:none">开始初审</button>
+          <button type="button" class="action-btn action-btn--primary" id="btnContinueReview" style="display:none">继续审核</button>
+        </div>
+      </header>
+
+      <div id="detailEmpty" class="detail-empty" style="display:none">
+        <p>未找到该项目，或项目 ID 无效。</p>
+        <a href="./project-manage.html" class="action-btn action-btn--primary">返回项目管理</a>
+      </div>
+
+      <section class="card form-card detail-card" id="detailCard">
+        <!-- 基础信息 -->
+        <div class="form-section detail-section">
+          <h2 class="form-section-title">基础信息</h2>
+          <div class="detail-grid">
+            <div class="detail-row">
+              <span class="detail-label">项目名称</span>
+              <span class="detail-value" id="detailName"></span>
+            </div>
+            <div class="detail-row">
+              <span class="detail-label">所属单位</span>
+              <span class="detail-value" id="detailBelongUnit"></span>
+            </div>
+            <div class="detail-row">
+              <span class="detail-label">行业</span>
+              <span class="detail-value" id="detailIndustry"></span>
+            </div>
+            <div class="detail-row">
+              <span class="detail-label">审核状态</span>
+              <span class="detail-value" id="detailStatus"></span>
+            </div>
+            <div class="detail-row">
+              <span class="detail-label">项目阶段</span>
+              <span class="detail-value" id="detailProjectStage"></span>
+            </div>
+            <div class="detail-row">
+              <span class="detail-label">TRL 等级</span>
+              <span class="detail-value" id="detailTrlLevel"></span>
+            </div>
+            <div class="detail-row">
+              <span class="detail-label">自评等级</span>
+              <span class="detail-value" id="detailSelfLevel"></span>
+            </div>
+            <div class="detail-row">
+              <span class="detail-label">部署形态</span>
+              <span class="detail-value" id="detailDeployForm"></span>
+            </div>
+            <div class="detail-row detail-row--full">
+              <span class="detail-label">申请时间</span>
+              <span class="detail-value" id="detailApplyTime"></span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 价值主张 -->
+        <div class="form-section detail-section">
+          <h2 class="form-section-title">价值主张</h2>
+          <div class="detail-block">
+            <p class="detail-value detail-value--block" id="detailValueProposition"></p>
+          </div>
+        </div>
+
+        <!-- 成果类型 -->
+        <div class="form-section detail-section">
+          <h2 class="form-section-title">成果类型</h2>
+          <div class="detail-tags" id="detailResultTypes"></div>
+        </div>
+
+        <!-- 技术亮点 -->
+        <div class="form-section detail-section">
+          <h2 class="form-section-title">技术亮点</h2>
+          <ul class="detail-list" id="detailTechHighlights"></ul>
+        </div>
+
+        <!-- 落地与指标 -->
+        <div class="form-section detail-section">
+          <h2 class="form-section-title">落地与指标</h2>
+          <div class="detail-grid">
+            <div class="detail-row">
+              <span class="detail-label">落地案例数</span>
+              <span class="detail-value" id="detailLandingCaseCount"></span>
+            </div>
+            <div class="detail-row">
+              <span class="detail-label">典型客户</span>
+              <span class="detail-value" id="detailTypicalClient"></span>
+            </div>
+            <div class="detail-row detail-row--full">
+              <span class="detail-label">关键指标</span>
+              <span class="detail-value detail-value--highlight" id="detailKeyMetric"></span>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+      </div>
+    </div>
+  </div>
+
+  <script src="./project-detail.js"></script>
+</body>
+</html>

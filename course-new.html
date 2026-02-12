@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>运营端 - 新建课程</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Source+Han+Sans+SC:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+<body class="admin-body">
+  <div class="admin dashboard-layout">
+    <aside class="dashboard-sidebar" aria-label="主导航">
+      <div class="dashboard-sidebar__top">
+        <a href="./expert.html" class="dashboard-logo" title="链域智汇 运营端">
+          <span class="dashboard-logo__mark">链</span>
+        </a>
+        <div class="dashboard-sidebar__brand-wrap">
+          <span class="dashboard-sidebar__brand">链域智汇</span>
+          <span class="dashboard-sidebar__portal-tag" aria-label="运营端">运营端</span>
+        </div>
+      </div>
+      <nav class="dashboard-nav" aria-label="功能菜单">
+        <a href="./expert.html" class="dashboard-nav__item" title="专家管理">
+          <span class="dashboard-nav__icon dashboard-nav__icon--svg">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="7" r="3.2"/><path d="M5 21v-2a4 4 0 0 1 4-4h6a4 4 0 0 1 4 4v2"/><circle cx="18" cy="5" r="1.8" fill="currentColor"/></svg>
+          </span>
+          <span class="dashboard-nav__label">专家管理</span>
+        </a>
+        <a href="./project-manage.html" class="dashboard-nav__item" title="项目管理">
+          <span class="dashboard-nav__icon dashboard-nav__icon--svg">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/><path d="M9 15l2 2 4-4"/></svg>
+          </span>
+          <span class="dashboard-nav__label">项目管理</span>
+        </a>
+        <a href="./course-list.html" class="dashboard-nav__item dashboard-nav__item--active" title="课程管理">
+          <span class="dashboard-nav__icon dashboard-nav__icon--svg">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/><path d="M8 7h8"/><path d="M8 11h6"/></svg>
+          </span>
+          <span class="dashboard-nav__label">课程管理</span>
+        </a>
+        <a href="./report-manage.html" class="dashboard-nav__item" title="报告管理">
+          <span class="dashboard-nav__icon dashboard-nav__icon--svg">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/><path d="M16 13H8"/><path d="M16 17H8"/><path d="M10 9H8"/></svg>
+          </span>
+          <span class="dashboard-nav__label">报告管理</span>
+        </a>
+      </nav>
+      <div class="dashboard-sidebar__bottom">
+        <div class="dashboard-sidebar__user">
+          <span class="dashboard-sidebar__user-avatar">管</span>
+          <div class="dashboard-sidebar__user-info">
+            <span class="dashboard-sidebar__user-name">管理员</span>
+            <span class="dashboard-sidebar__user-role">运营账号</span>
+          </div>
+        </div>
+      </div>
+    </aside>
+
+    <div class="dashboard-main">
+      <div class="dashboard-content">
+    <div class="content-wrap content-with-anchor">
+    <main class="content">
+      <header class="content-header">
+        <div>
+          <a href="./course-list.html" class="form-back">← 返回课程管理</a>
+          <h1>新建课程</h1>
+          <p>填写课程信息并提交保存</p>
+        </div>
+      </header>
+
+      <section class="card form-card">
+        <form class="course-form" id="courseForm">
+          <div class="form-section" id="anchor-basic">
+            <h2 class="form-section-title">基础信息</h2>
+            <div class="form-grid form-grid--single">
+              <div class="form-field">
+                <label for="courseName">课程名称 <span class="required">*</span></label>
+                <input type="text" id="courseName" name="courseName" placeholder="请输入课程名称" required />
+              </div>
+              <div class="form-field form-field-avatar">
+                <label>课程封面</label>
+                <div class="avatar-upload">
+                  <input type="file" id="cover" name="cover" accept="image/*" class="avatar-input" />
+                  <div class="avatar-preview" id="coverPreview">
+                    <span class="avatar-placeholder">上传封面</span>
+                  </div>
+                  <span class="avatar-hint">建议 16:9</span>
+                </div>
+              </div>
+              <div class="form-field">
+                <label for="courseCategory">课程分类 <span class="required">*</span></label>
+                <select id="courseCategory" name="courseCategory" required>
+                  <option value="">请选择</option>
+                  <option value="供应链管理">供应链管理</option>
+                  <option value="采购与寻源">采购与寻源</option>
+                  <option value="计划与预测">计划与预测</option>
+                  <option value="仓储物流">仓储物流</option>
+                  <option value="数字化">数字化</option>
+                  <option value="其他">其他</option>
+                </select>
+              </div>
+              <div class="form-field">
+                <label for="courseLevel">难度级别</label>
+                <select id="courseLevel" name="courseLevel">
+                  <option value="入门">入门</option>
+                  <option value="进阶">进阶</option>
+                  <option value="高级">高级</option>
+                </select>
+              </div>
+              <div class="form-field full">
+                <label for="courseDesc">课程简介 <span class="required">*</span> <span class="char-count" id="descCount">0 / 200 字</span></label>
+                <textarea id="courseDesc" name="courseDesc" rows="4" placeholder="简要介绍课程内容与目标，200 字以内" maxlength="200"></textarea>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-section" id="anchor-teach">
+            <h2 class="form-section-title">授课信息</h2>
+            <div class="form-grid form-grid--single">
+              <div class="form-field">
+                <label for="expertId">授课专家</label>
+                <select id="expertId" name="expertId">
+                  <option value="">请选择（可选）</option>
+                  <option value="1">李泽宇 - 高级顾问</option>
+                  <option value="2">周婧怡 - 供应链专家</option>
+                  <option value="3">王天澍 - 仓储运营专家</option>
+                </select>
+              </div>
+              <div class="form-field">
+                <label for="startTime">开课时间</label>
+                <input type="datetime-local" id="startTime" name="startTime" />
+              </div>
+              <div class="form-field">
+                <label for="duration">时长（分钟）</label>
+                <input type="number" id="duration" name="duration" placeholder="如 120" min="1" step="1" />
+              </div>
+              <div class="form-field">
+                <label for="deliveryMode">授课方式 <span class="required">*</span></label>
+                <select id="deliveryMode" name="deliveryMode" required>
+                  <option value="线上">线上</option>
+                  <option value="线下">线下</option>
+                  <option value="混合">混合</option>
+                  <option value="录播">录播</option>
+                  <option value="视频录播">视频录播</option>
+                </select>
+              </div>
+              <div class="form-field full">
+                <label for="courseOutline">课程大纲</label>
+                <textarea id="courseOutline" name="courseOutline" rows="5" placeholder="每行一条，如：第一章 概述；第二章 核心方法…"></textarea>
+              </div>
+              <div class="form-field full">
+                <label>课程视频上传</label>
+                <div class="video-upload">
+                  <input type="file" id="courseVideo" name="courseVideo" accept="video/*" class="video-input" />
+                  <div class="video-upload-area" id="courseVideoArea">
+                    <span class="video-upload-placeholder">点击或拖拽上传课程视频</span>
+                    <span class="video-hint">支持 mp4、webm 等常见视频格式</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-section" id="anchor-price">
+            <h2 class="form-section-title">收费信息</h2>
+            <div class="form-grid form-grid--single">
+              <div class="form-field form-field-price">
+                <label>价格</label>
+                <div class="price-row">
+                  <label class="price-face-only">
+                    <input type="checkbox" id="priceFree" name="priceFree" />
+                    免费
+                  </label>
+                  <span class="price-inputs" id="priceInputs">
+                    <input type="number" id="priceValue" name="priceValue" placeholder="金额" min="0" step="0.01" />
+                    <span class="price-unit">元</span>
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-actions">
+            <a href="./course-list.html" class="ghost-btn">取消</a>
+            <button type="button" class="secondary" id="btnSaveOnly">仅保存</button>
+            <button type="submit" class="primary">提交并保存</button>
+          </div>
+        </form>
+      </section>
+    </main>
+    <nav class="form-anchor" aria-label="章节导航">
+      <div class="form-anchor__title">目录</div>
+      <ul class="form-anchor__list">
+        <li><a href="#anchor-basic">基础信息</a></li>
+        <li><a href="#anchor-teach">授课信息</a></li>
+        <li><a href="#anchor-price">收费信息</a></li>
+      </ul>
+    </nav>
+    </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="./course-new.js"></script>
+</body>
+</html>

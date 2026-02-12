@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>运营端 - 课程管理</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Source+Han+Sans+SC:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+<body class="admin-body">
+  <div class="admin dashboard-layout">
+    <aside class="dashboard-sidebar" aria-label="主导航">
+      <div class="dashboard-sidebar__top">
+        <a href="./expert.html" class="dashboard-logo" title="链域智汇 运营端">
+          <span class="dashboard-logo__mark">链</span>
+        </a>
+        <div class="dashboard-sidebar__brand-wrap">
+          <span class="dashboard-sidebar__brand">链域智汇</span>
+          <span class="dashboard-sidebar__portal-tag" aria-label="运营端">运营端</span>
+        </div>
+      </div>
+      <nav class="dashboard-nav" aria-label="功能菜单">
+        <a href="./expert.html" class="dashboard-nav__item" title="专家管理">
+          <span class="dashboard-nav__icon dashboard-nav__icon--svg">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="7" r="3.2"/><path d="M5 21v-2a4 4 0 0 1 4-4h6a4 4 0 0 1 4 4v2"/><circle cx="18" cy="5" r="1.8" fill="currentColor"/></svg>
+          </span>
+          <span class="dashboard-nav__label">专家管理</span>
+        </a>
+        <a href="./project-manage.html" class="dashboard-nav__item" title="项目管理">
+          <span class="dashboard-nav__icon dashboard-nav__icon--svg">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/><path d="M9 15l2 2 4-4"/></svg>
+          </span>
+          <span class="dashboard-nav__label">项目管理</span>
+        </a>
+        <a href="./course-list.html" class="dashboard-nav__item dashboard-nav__item--active" title="课程管理">
+          <span class="dashboard-nav__icon dashboard-nav__icon--svg">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/><path d="M8 7h8"/><path d="M8 11h6"/></svg>
+          </span>
+          <span class="dashboard-nav__label">课程管理</span>
+        </a>
+        <a href="./report-manage.html" class="dashboard-nav__item" title="报告管理">
+          <span class="dashboard-nav__icon dashboard-nav__icon--svg">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/><path d="M16 13H8"/><path d="M16 17H8"/><path d="M10 9H8"/></svg>
+          </span>
+          <span class="dashboard-nav__label">报告管理</span>
+        </a>
+      </nav>
+      <div class="dashboard-sidebar__bottom">
+        <div class="dashboard-sidebar__user">
+          <span class="dashboard-sidebar__user-avatar">管</span>
+          <div class="dashboard-sidebar__user-info">
+            <span class="dashboard-sidebar__user-name">管理员</span>
+            <span class="dashboard-sidebar__user-role">运营账号</span>
+          </div>
+        </div>
+      </div>
+    </aside>
+
+    <div class="dashboard-main">
+      <div class="dashboard-content">
+    <main class="content">
+      <header class="content-header">
+        <div>
+          <h1>课程管理</h1>
+          <p>维护课程信息、上下架与排序</p>
+        </div>
+        <div class="actions">
+          <a href="./course-new.html" class="action-btn action-btn--primary">新建课程</a>
+        </div>
+      </header>
+
+      <section class="card">
+        <div class="table-toolbar">
+          <input class="search" type="text" placeholder="搜索课程名称 / 分类 / 专家" id="searchInput" />
+          <select class="filter" id="filterCategory">
+            <option value="">全部分类</option>
+            <option value="供应链管理">供应链管理</option>
+            <option value="采购与寻源">采购与寻源</option>
+            <option value="计划与预测">计划与预测</option>
+            <option value="仓储物流">仓储物流</option>
+            <option value="数字化">数字化</option>
+            <option value="其他">其他</option>
+          </select>
+          <select class="filter" id="filterStatus">
+            <option value="">全部状态</option>
+            <option value="上架">上架</option>
+            <option value="下架">下架</option>
+          </select>
+        </div>
+
+        <div class="table table--course" id="courseTable">
+          <div class="table-head">
+            <span>课程信息</span>
+            <span>分类</span>
+            <span>难度</span>
+            <span>授课专家</span>
+            <span>授课方式</span>
+            <span>开课时间</span>
+            <span>价格</span>
+            <span>状态</span>
+            <span>操作</span>
+          </div>
+          <div class="table-row" data-id="1">
+            <div class="course-item">
+              <div class="course-cover"><img src="./图2.jpg" alt="" /></div>
+              <div>
+                <div class="name">供应链战略与规划实战</div>
+              </div>
+            </div>
+            <span>供应链管理</span>
+            <span>进阶</span>
+            <span>李泽宇</span>
+            <span>线上</span>
+            <span>2025-03-15 14:00</span>
+            <span>免费</span>
+            <span class="status success">上架</span>
+            <span class="ops"><a href="#">详情</a><a href="./course-new.html?id=1">编辑</a><a href="#">下架</a><a href="#">删除</a></span>
+          </div>
+          <div class="table-row" data-id="2">
+            <div class="course-item">
+              <div class="course-cover"><img src="./图2.jpg" alt="" /></div>
+              <div>
+                <div class="name">采购寻源与供应商管理</div>
+              </div>
+            </div>
+            <span>采购与寻源</span>
+            <span>高级</span>
+            <span>周婧怡</span>
+            <span>线下</span>
+            <span>2025-03-20 09:00</span>
+            <span>¥ 299</span>
+            <span class="status success">上架</span>
+            <span class="ops"><a href="#">详情</a><a href="./course-new.html?id=2">编辑</a><a href="#">下架</a><a href="#">删除</a></span>
+          </div>
+          <div class="table-row" data-id="3">
+            <div class="course-item">
+              <div class="course-cover"><img src="./图2.jpg" alt="" /></div>
+              <div>
+                <div class="name">仓储规划与智能调度</div>
+              </div>
+            </div>
+            <span>仓储物流</span>
+            <span>入门</span>
+            <span>王天澍</span>
+            <span>混合</span>
+            <span>2025-03-25 15:00</span>
+            <span>¥ 199</span>
+            <span class="status muted">下架</span>
+            <span class="ops"><a href="#">详情</a><a href="./course-new.html?id=3">编辑</a><a href="#">上架</a><a href="#">删除</a></span>
+          </div>
+          <div class="table-row" data-id="4">
+            <div class="course-item">
+              <div class="course-cover"><img src="./图2.jpg" alt="" /></div>
+              <div>
+                <div class="name">供应链数字化实践精讲</div>
+              </div>
+            </div>
+            <span>数字化</span>
+            <span>入门</span>
+            <span>李泽宇</span>
+            <span>录播</span>
+            <span>—</span>
+            <span>免费</span>
+            <span class="status success">上架</span>
+            <span class="ops"><a href="#">详情</a><a href="./course-new.html?id=4">编辑</a><a href="#">下架</a><a href="#">删除</a></span>
+          </div>
+        </div>
+
+        <div class="table-pagination">
+          <div class="pagination-info" id="paginationInfo">共 4 条</div>
+          <div class="pagination-controls">
+            <button type="button" class="pagination-btn" disabled aria-label="上一页" id="prevBtn">上一页</button>
+            <span class="pagination-pages">
+              <button type="button" class="pagination-num is-current">1</button>
+            </span>
+            <button type="button" class="pagination-btn" disabled aria-label="下一页" id="nextBtn">下一页</button>
+          </div>
+          <div class="pagination-size">
+            <label for="pageSize">每页</label>
+            <select id="pageSize" class="pagination-select">
+              <option value="10">10 条</option>
+              <option value="20">20 条</option>
+              <option value="50">50 条</option>
+            </select>
+          </div>
+        </div>
+      </section>
+    </main>
+      </div>
+    </div>
+  </div>
+
+  <script src="./course-list.js"></script>
+</body>
+</html>

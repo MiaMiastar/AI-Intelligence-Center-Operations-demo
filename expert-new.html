@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>运营端 - 新建专家</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Source+Han+Sans+SC:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+<body class="admin-body">
+  <div class="admin dashboard-layout">
+    <aside class="dashboard-sidebar" aria-label="主导航">
+      <div class="dashboard-sidebar__top">
+        <a href="./expert.html" class="dashboard-logo" title="链域智汇 运营端">
+          <span class="dashboard-logo__mark">链</span>
+        </a>
+        <div class="dashboard-sidebar__brand-wrap">
+          <span class="dashboard-sidebar__brand">链域智汇</span>
+          <span class="dashboard-sidebar__portal-tag" aria-label="运营端">运营端</span>
+        </div>
+      </div>
+      <nav class="dashboard-nav" aria-label="功能菜单">
+        <a href="./expert.html" class="dashboard-nav__item dashboard-nav__item--active" title="专家管理">
+          <span class="dashboard-nav__icon dashboard-nav__icon--svg">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="7" r="3.2"/><path d="M5 21v-2a4 4 0 0 1 4-4h6a4 4 0 0 1 4 4v2"/><circle cx="18" cy="5" r="1.8" fill="currentColor"/></svg>
+          </span>
+          <span class="dashboard-nav__label">专家管理</span>
+        </a>
+        <a href="./project-manage.html" class="dashboard-nav__item" title="项目管理">
+          <span class="dashboard-nav__icon dashboard-nav__icon--svg">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/><path d="M9 15l2 2 4-4"/></svg>
+          </span>
+          <span class="dashboard-nav__label">项目管理</span>
+        </a>
+        <a href="./course-list.html" class="dashboard-nav__item" title="课程管理">
+          <span class="dashboard-nav__icon dashboard-nav__icon--svg">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/><path d="M8 7h8"/><path d="M8 11h6"/></svg>
+          </span>
+          <span class="dashboard-nav__label">课程管理</span>
+        </a>
+        <a href="./report-manage.html" class="dashboard-nav__item" title="报告管理">
+          <span class="dashboard-nav__icon dashboard-nav__icon--svg">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/><path d="M16 13H8"/><path d="M16 17H8"/><path d="M10 9H8"/></svg>
+          </span>
+          <span class="dashboard-nav__label">报告管理</span>
+        </a>
+      </nav>
+      <div class="dashboard-sidebar__bottom">
+        <div class="dashboard-sidebar__user">
+          <span class="dashboard-sidebar__user-avatar">管</span>
+          <div class="dashboard-sidebar__user-info">
+            <span class="dashboard-sidebar__user-name">管理员</span>
+            <span class="dashboard-sidebar__user-role">运营账号</span>
+          </div>
+        </div>
+      </div>
+    </aside>
+
+    <div class="dashboard-main">
+      <div class="dashboard-content">
+    <div class="content-wrap content-with-anchor">
+    <main class="content">
+      <header class="content-header">
+        <div>
+          <a href="./expert.html" class="form-back">← 返回专家管理</a>
+          <h1>新建专家</h1>
+          <p>填写专家信息并提交审核</p>
+        </div>
+      </header>
+
+      <section class="card form-card">
+        <form class="expert-form" id="expertForm">
+          <!-- 基础信息 -->
+          <div class="form-section" id="anchor-basic">
+            <h2 class="form-section-title">基础信息</h2>
+            <div class="form-grid form-grid--single">
+              <div class="form-field">
+                <label for="name">姓名 <span class="required">*</span></label>
+                <input type="text" id="name" name="name" placeholder="请输入专家姓名" required />
+              </div>
+              <div class="form-field form-field-avatar">
+                <label>头像</label>
+                <div class="avatar-upload">
+                  <input type="file" id="avatar" name="avatar" accept="image/*" class="avatar-input" />
+                  <div class="avatar-preview" id="avatarPreview">
+                    <span class="avatar-placeholder">上传头像</span>
+                  </div>
+                  <span class="avatar-hint">无则用占位</span>
+                </div>
+              </div>
+              <div class="form-field">
+                <label for="title">职称/头衔 <span class="required">*</span></label>
+                <input type="text" id="title" name="title" placeholder="如：高级顾问、供应链专家" required />
+              </div>
+              <div class="form-field">
+                <label for="org">所属机构 <span class="required">*</span></label>
+                <input type="text" id="org" name="org" placeholder="如：华港物流集团" required />
+              </div>
+              <div class="form-field">
+                <label for="location">城市/地区 <span class="required">*</span></label>
+                <input type="text" id="location" name="location" placeholder="如：北京、上海" required />
+              </div>
+              <div class="form-field full">
+                <label for="bioShort">简介短 <span class="required">*</span> <span class="char-count" id="bioShortCount">0 / 50-120 字</span></label>
+                <textarea id="bioShort" name="bioShort" rows="2" placeholder="50-120 字，用于列表/卡片展示" maxlength="120"></textarea>
+              </div>
+              <div class="form-field full">
+                <label for="bioLong">简介长 <span class="required">*</span> <span class="char-count" id="bioLongCount">0 / 300-800 字</span></label>
+                <textarea id="bioLong" name="bioLong" rows="6" placeholder="300-800 字，用于详情页" maxlength="800"></textarea>
+              </div>
+            </div>
+          </div>
+
+          <!-- 专业能力 -->
+          <div class="form-section" id="anchor-ability">
+            <h2 class="form-section-title">专业能力</h2>
+            <div class="form-grid form-grid--single">
+              <div class="form-field">
+                <label>领域 <span class="required">*</span></label>
+                <div class="domain-two-level">
+                  <select id="domainPrimary" name="domainPrimary" required>
+                    <option value="">一级领域</option>
+                    <option value="供应链管理">供应链管理</option>
+                    <option value="采购与寻源">采购与寻源</option>
+                    <option value="计划与预测">计划与预测</option>
+                    <option value="仓储物流">仓储物流</option>
+                    <option value="数字化">数字化</option>
+                    <option value="其他">其他</option>
+                  </select>
+                  <select id="domainSecondary" name="domainSecondary">
+                    <option value="">二级领域</option>
+                  </select>
+                </div>
+              </div>
+              <div class="form-field full">
+                <label>关键词标签 <span class="required">*</span> <span class="char-count" id="tagsHint">需 3-10 个，输入后回车添加</span></label>
+                <div class="tags-wrap">
+                  <div class="tags-chips" id="tagsChips"></div>
+                  <input type="text" class="tags-input" id="tagsInput" placeholder="输入关键词后按回车添加" />
+                </div>
+                <input type="hidden" name="tags" id="tagsHidden" />
+              </div>
+              <div class="form-field full">
+                <label>擅长问题 <span class="required">*</span></label>
+                <div class="dynamic-list" data-name="strengths">
+                  <div class="dynamic-list-items" id="strengthsList"></div>
+                  <button type="button" class="btn-add-row">+ 新增一条</button>
+                </div>
+              </div>
+              <div class="form-field full">
+                <label>服务类型 <span class="required">*</span></label>
+                <div class="checkbox-group" data-name="serviceTypes">
+                  <label class="checkbox-label"><input type="checkbox" name="serviceTypes" value="咨询" /> 咨询</label>
+                  <label class="checkbox-label"><input type="checkbox" name="serviceTypes" value="诊断" /> 诊断</label>
+                  <label class="checkbox-label"><input type="checkbox" name="serviceTypes" value="培训" /> 培训</label>
+                  <label class="checkbox-label"><input type="checkbox" name="serviceTypes" value="评审" /> 评审</label>
+                  <label class="checkbox-label"><input type="checkbox" name="serviceTypes" value="陪跑" /> 陪跑</label>
+                </div>
+              </div>
+              <div class="form-field full">
+                <label>行业经验 <span class="required">*</span></label>
+                <div class="checkbox-group" data-name="industries">
+                  <label class="checkbox-label"><input type="checkbox" name="industries" value="制造" /> 制造</label>
+                  <label class="checkbox-label"><input type="checkbox" name="industries" value="零售" /> 零售</label>
+                  <label class="checkbox-label"><input type="checkbox" name="industries" value="快消" /> 快消</label>
+                  <label class="checkbox-label"><input type="checkbox" name="industries" value="医药" /> 医药</label>
+                  <label class="checkbox-label"><input type="checkbox" name="industries" value="汽车" /> 汽车</label>
+                  <label class="checkbox-label"><input type="checkbox" name="industries" value="跨境" /> 跨境</label>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- 项目经历 -->
+          <div class="form-section" id="anchor-experience">
+            <h2 class="form-section-title">项目经历</h2>
+            <div class="form-grid form-grid--single">
+              <div class="form-field full">
+                <label>工作经历</label>
+                <div class="dynamic-list dynamic-list-block" data-name="experiences" data-fields="company,role,start,end,points">
+                  <div class="dynamic-list-items" id="experiencesList"></div>
+                  <button type="button" class="btn-add-row">+ 新增一条</button>
+                </div>
+              </div>
+              <div class="form-field full">
+                <label>项目/案例</label>
+                <div class="dynamic-list dynamic-list-block" data-name="cases" data-fields="name,industry,result,role,scope">
+                  <div class="dynamic-list-items" id="casesList"></div>
+                  <button type="button" class="btn-add-row">+ 新增一条</button>
+                </div>
+              </div>
+              <div class="form-field full">
+                <label>研究/著作/专利</label>
+                <div class="dynamic-list" data-name="publications">
+                  <div class="dynamic-list-items" id="publicationsList"></div>
+                  <button type="button" class="btn-add-row">+ 新增一条</button>
+                </div>
+              </div>
+              <div class="form-field full">
+                <label>资质证书</label>
+                <div class="dynamic-list" data-name="certificates">
+                  <div class="dynamic-list-items" id="certificatesList"></div>
+                  <button type="button" class="btn-add-row">+ 新增一条</button>
+                </div>
+              </div>
+              <div class="form-field full">
+                <label>荣誉</label>
+                <div class="dynamic-list" data-name="awards">
+                  <div class="dynamic-list-items" id="awardsList"></div>
+                  <button type="button" class="btn-add-row">+ 新增一条</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- 服务交付 -->
+          <div class="form-section" id="anchor-delivery">
+            <h2 class="form-section-title">服务交付</h2>
+            <div class="form-grid form-grid--single">
+              <div class="form-field">
+                <label for="deliveryMode">服务方式</label>
+                <select id="deliveryMode" name="deliveryMode">
+                  <option value="">请选择</option>
+                  <option value="线上">线上</option>
+                  <option value="线下">线下</option>
+                  <option value="混合">混合</option>
+                </select>
+              </div>
+              <div class="form-field full">
+                <label>可服务时间</label>
+                <div class="checkbox-group" data-name="availability">
+                  <label class="checkbox-label"><input type="checkbox" name="availability" value="工作日" /> 工作日</label>
+                  <label class="checkbox-label"><input type="checkbox" name="availability" value="周末" /> 周末</label>
+                  <label class="checkbox-label"><input type="checkbox" name="availability" value="晚间" /> 晚间</label>
+                </div>
+              </div>
+              <div class="form-field">
+                <label for="regions">服务范围</label>
+                <select id="regions" name="regions">
+                  <option value="">请选择</option>
+                  <option value="全国">全国</option>
+                  <option value="指定城市">指定城市</option>
+                  <option value="可出差">可出差</option>
+                </select>
+              </div>
+              <div class="form-field full form-field-price">
+                <label>参考价格</label>
+                <div class="price-row">
+                  <label class="price-face-only">
+                    <input type="checkbox" id="priceFaceOnly" name="priceFaceOnly" />
+                    面议
+                  </label>
+                  <span class="price-inputs" id="priceInputs">
+                    <input type="number" id="priceValue" name="priceValue" placeholder="数值" min="0" step="1" />
+                    <select id="priceUnit" name="priceUnit">
+                      <option value="元/小时">元/小时</option>
+                      <option value="元/天">元/天</option>
+                      <option value="元/项目">元/项目</option>
+                    </select>
+                  </span>
+                </div>
+              </div>
+              <div class="form-field full">
+                <label>交付物</label>
+                <div class="checkbox-group" data-name="deliverables">
+                  <label class="checkbox-label"><input type="checkbox" name="deliverables" value="诊断报告" /> 诊断报告</label>
+                  <label class="checkbox-label"><input type="checkbox" name="deliverables" value="培训课件" /> 培训课件</label>
+                  <label class="checkbox-label"><input type="checkbox" name="deliverables" value="评审意见书" /> 评审意见书</label>
+                  <label class="checkbox-label"><input type="checkbox" name="deliverables" value="方案PPT" /> 方案PPT</label>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- 联系信息 -->
+          <div class="form-section" id="anchor-contact">
+            <h2 class="form-section-title">联系信息</h2>
+            <div class="form-grid form-grid--single">
+              <div class="form-field">
+                <label for="contactName">联系人</label>
+                <input type="text" id="contactName" name="contactName" placeholder="选填" />
+              </div>
+              <div class="form-field">
+                <label for="contactPhone">联系电话</label>
+                <input type="tel" id="contactPhone" name="contactPhone" placeholder="选填" />
+              </div>
+              <div class="form-field">
+                <label for="contactEmail">联系邮箱</label>
+                <input type="email" id="contactEmail" name="contactEmail" placeholder="选填" />
+              </div>
+              <div class="form-field">
+                <label for="visibility">展示范围</label>
+                <select id="visibility" name="visibility">
+                  <option value="公开">公开</option>
+                  <option value="仅内部">仅内部</option>
+                  <option value="仅匹配后展示">仅匹配后展示</option>
+                </select>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-actions">
+            <a href="./expert.html" class="ghost-btn">取消</a>
+            <button type="button" class="secondary" id="btnSaveOnly">仅保存</button>
+            <button type="submit" class="primary">提交并保存</button>
+          </div>
+        </form>
+      </section>
+    </main>
+    <nav class="form-anchor" aria-label="章节导航">
+      <div class="form-anchor__title">目录</div>
+      <ul class="form-anchor__list">
+        <li><a href="#anchor-basic">基础信息</a></li>
+        <li><a href="#anchor-ability">专业能力</a></li>
+        <li><a href="#anchor-experience">项目经历</a></li>
+        <li><a href="#anchor-delivery">服务交付</a></li>
+        <li><a href="#anchor-contact">联系信息</a></li>
+      </ul>
+    </nav>
+    </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 动态行模板：工作经历 -->
+  <template id="tpl-experience">
+    <div class="dynamic-row" data-name="experiences">
+      <input type="text" placeholder="公司" name="experiences_company" />
+      <input type="text" placeholder="岗位" name="experiences_role" />
+      <input type="text" placeholder="开始时间" name="experiences_start" />
+      <input type="text" placeholder="结束时间" name="experiences_end" />
+      <input type="text" placeholder="要点" name="experiences_points" class="full" />
+      <button type="button" class="btn-remove-row" aria-label="删除">×</button>
+    </div>
+  </template>
+  <!-- 动态行模板：项目/案例 -->
+  <template id="tpl-case">
+    <div class="dynamic-row" data-name="cases">
+      <input type="text" placeholder="项目名" name="cases_name" />
+      <input type="text" placeholder="行业" name="cases_industry" />
+      <input type="text" placeholder="成果指标" name="cases_result" />
+      <input type="text" placeholder="角色" name="cases_role" />
+      <input type="text" placeholder="可公开范围" name="cases_scope" class="full" />
+      <button type="button" class="btn-remove-row" aria-label="删除">×</button>
+    </div>
+  </template>
+
+  <script src="./expert-new.js"></script>
+</body>
+</html>

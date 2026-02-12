@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>运营端 - 专家管理</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Source+Han+Sans+SC:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+<body class="admin-body">
+  <div class="admin dashboard-layout">
+    <aside class="dashboard-sidebar" aria-label="主导航">
+      <div class="dashboard-sidebar__top">
+        <a href="./expert.html" class="dashboard-logo" title="链域智汇 运营端">
+          <span class="dashboard-logo__mark">链</span>
+        </a>
+        <div class="dashboard-sidebar__brand-wrap">
+          <span class="dashboard-sidebar__brand">链域智汇</span>
+          <span class="dashboard-sidebar__portal-tag" aria-label="运营端">运营端</span>
+        </div>
+      </div>
+      <nav class="dashboard-nav" aria-label="功能菜单">
+        <a href="./expert.html" class="dashboard-nav__item dashboard-nav__item--active" title="专家管理">
+          <span class="dashboard-nav__icon dashboard-nav__icon--svg">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="7" r="3.2"/><path d="M5 21v-2a4 4 0 0 1 4-4h6a4 4 0 0 1 4 4v2"/><circle cx="18" cy="5" r="1.8" fill="currentColor"/></svg>
+          </span>
+          <span class="dashboard-nav__label">专家管理</span>
+        </a>
+        <a href="./project-manage.html" class="dashboard-nav__item" title="项目管理">
+          <span class="dashboard-nav__icon dashboard-nav__icon--svg">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/><path d="M9 15l2 2 4-4"/></svg>
+          </span>
+          <span class="dashboard-nav__label">项目管理</span>
+        </a>
+        <a href="./course-list.html" class="dashboard-nav__item" title="课程管理">
+          <span class="dashboard-nav__icon dashboard-nav__icon--svg">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/><path d="M8 7h8"/><path d="M8 11h6"/></svg>
+          </span>
+          <span class="dashboard-nav__label">课程管理</span>
+        </a>
+        <a href="./report-manage.html" class="dashboard-nav__item" title="报告管理">
+          <span class="dashboard-nav__icon dashboard-nav__icon--svg">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/><path d="M16 13H8"/><path d="M16 17H8"/><path d="M10 9H8"/></svg>
+          </span>
+          <span class="dashboard-nav__label">报告管理</span>
+        </a>
+      </nav>
+      <div class="dashboard-sidebar__bottom">
+        <div class="dashboard-sidebar__user">
+          <span class="dashboard-sidebar__user-avatar">管</span>
+          <div class="dashboard-sidebar__user-info">
+            <span class="dashboard-sidebar__user-name">管理员</span>
+            <span class="dashboard-sidebar__user-role">运营账号</span>
+          </div>
+        </div>
+      </div>
+    </aside>
+
+    <div class="dashboard-main">
+      <div class="dashboard-content">
+    <main class="content">
+      <header class="content-header">
+        <div>
+          <h1>专家管理</h1>
+          <p>维护专家信息与状态</p>
+        </div>
+        <div class="actions">
+          <button class="action-btn action-btn--primary">批量导入</button>
+          <a href="./expert-new.html" class="action-btn action-btn--primary">新增专家</a>
+        </div>
+      </header>
+
+      <section class="card">
+        <div class="table-toolbar">
+          <input class="search" type="text" placeholder="搜索姓名 / 领域 / 机构 / 城市 / 标签" />
+          <select class="filter">
+            <option>全部状态</option>
+            <option>上架</option>
+            <option>下架</option>
+          </select>
+        </div>
+
+        <div class="table">
+          <div class="table-head">
+            <span>专家信息</span>
+            <span>领域方向</span>
+            <span>所属机构</span>
+            <span>城市/地区</span>
+            <span>服务类型</span>
+            <span>展示范围</span>
+            <span>状态</span>
+            <span>操作</span>
+          </div>
+          <div class="table-row">
+            <div class="expert">
+              <div class="avatar">李</div>
+              <div>
+                <div class="name">李泽宇</div>
+                <div class="meta">高级顾问</div>
+              </div>
+            </div>
+            <span>供应链管理 · 战略规划</span>
+            <span>华港物流集团</span>
+            <span>北京</span>
+            <span class="service-types">咨询、培训、评审</span>
+            <span>公开</span>
+            <span class="status success">上架</span>
+            <span class="ops"><a href="#">详情</a><a href="#">编辑</a><a href="#">下架</a><a href="#">删除</a></span>
+          </div>
+          <div class="table-row">
+            <div class="expert">
+              <div class="avatar">周</div>
+              <div>
+                <div class="name">周婧怡</div>
+                <div class="meta">供应链专家</div>
+              </div>
+            </div>
+            <span>供应链管理 · 供应链金融</span>
+            <span>慧联科技</span>
+            <span>上海</span>
+            <span class="service-types">咨询、诊断</span>
+            <span>仅内部</span>
+            <span class="status success">上架</span>
+            <span class="ops"><a href="#">详情</a><a href="#">编辑</a><a href="#">下架</a><a href="#">删除</a></span>
+          </div>
+          <div class="table-row">
+            <div class="expert">
+              <div class="avatar">王</div>
+              <div>
+                <div class="name">王天澍</div>
+                <div class="meta">仓储运营专家</div>
+              </div>
+            </div>
+            <span>仓储物流 · 仓储规划</span>
+            <span>中远仓配</span>
+            <span>深圳</span>
+            <span class="service-types">培训、陪跑</span>
+            <span>仅匹配后展示</span>
+            <span class="status muted">下架</span>
+            <span class="ops"><a href="#">详情</a><a href="#">编辑</a><a href="#">上架</a><a href="#">删除</a></span>
+          </div>
+        </div>
+
+        <div class="table-pagination">
+          <div class="pagination-info">共 3 条</div>
+          <div class="pagination-controls">
+            <button type="button" class="pagination-btn" disabled aria-label="上一页">上一页</button>
+            <span class="pagination-pages">
+              <button type="button" class="pagination-num is-current">1</button>
+              <button type="button" class="pagination-num">2</button>
+            </span>
+            <button type="button" class="pagination-btn" aria-label="下一页">下一页</button>
+          </div>
+          <div class="pagination-size">
+            <label for="pageSize">每页</label>
+            <select id="pageSize" class="pagination-select">
+              <option value="10">10 条</option>
+              <option value="20">20 条</option>
+              <option value="50">50 条</option>
+            </select>
+          </div>
+        </div>
+      </section>
+    </main>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
